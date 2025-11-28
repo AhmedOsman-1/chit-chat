@@ -27,7 +27,8 @@ io.on('connection', (socket) => {
     });
 
     socket.on('send_message', (data) => {
-       socket.to(data.room).emit('receive_message', data)
+       socket.to(data.room).emit('receive_message', data);
+       console.log('Message sent to room', data);
     });
      socket.on('typing', (username, room) => {
        socket.to(room).emit('user_typing', username)
